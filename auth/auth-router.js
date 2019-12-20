@@ -2,6 +2,8 @@ const router = require('express').Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken"); // installed this
 
+const secret = process.env.JWT_SECRET || "do you liike jokes?";
+
 const Users = require("../users/users-model.js");
 
 function clg(...x) { console.log(...x) }
@@ -61,10 +63,9 @@ function signToken(user) {
 		username: user.username,
 	};
 
-	const secret = process.env.JWT_SECRET || "do you liike jokes?";
 
 	const options = {
-		expiresIn: "1m",
+		expiresIn: "1h",
 	};
 
 	return jwt.sign(payload, secret, options); // notice the return
