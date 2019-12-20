@@ -11,16 +11,24 @@ router.post('/register', (req, res) => {
 
 	let user = req.body;
 	clg("13", user);
-	const hash = bcrypt.hashSync(user.password, 10); // 2 ^ n
-	user.password = hash;
+	
+	if (isEmpty(user)) {
+		clg("16", user.username);
+		res.status(400).json({ msg: "Must have username and password. Together." })
+		res.end();
+	} else {
 
-	Users.add(user)
-		.then(saved => {
-			res.status(201).json(saved);
-		})
-		.catch(error => {
-			res.status(500).json(error);
-		});
+		const hash = bcrypt.hashSync(user.password, 10); // 2 ^ n
+		user.password = hash;
+
+		Users.add(user)
+			.then(saved => {
+				res.status(201).json(saved);
+			})
+			.catch(error => {
+				res.status(500).json(error);
+			});
+	}
 });
 
 router.post('/login', (req, res) => {
@@ -62,5 +70,8 @@ function signToken(user) {
 	return jwt.sign(payload, secret, options); // notice the return
 }
 
+function isEmpty(obj) {
+    return Object.keys(obj).length === 0;
+}
 
 module.exports = router;
