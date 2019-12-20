@@ -5,7 +5,7 @@ function clg(...x) { console.log(...x) }
 
 module.exports = (req, res, next) => {
 	const { authorization } = req.headers;
-	clg(authorization)
+	// clg(authorization)
 
 	if (authorization) {
 		const secret = process.env.JWT_SECRET || "do you liike jokes?";
