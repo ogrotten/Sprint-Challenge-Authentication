@@ -12,10 +12,10 @@ router.post('/register', (req, res) => {
 	// implement registration
 
 	let user = req.body;
-	clg("13", user);
+	// clg("13", user);
 	
 	if (isEmpty(user)) {
-		clg("16", user.username);
+		// clg("16", user.username);
 		res.status(400).json({ msg: "Must have username and password. Together." })
 		res.end();
 	} else {
@@ -65,7 +65,7 @@ function signToken(user) {
 
 
 	const options = {
-		expiresIn: "1h",
+		expiresIn: "10h",
 	};
 
 	return jwt.sign(payload, secret, options); // notice the return
