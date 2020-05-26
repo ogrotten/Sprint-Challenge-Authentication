@@ -1,3 +1,30 @@
+# Self-Study/Essay Questions
+# Self-Study/Essay Questions
+# Self-Study/Essay Questions
+
+Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
+
+## What is the purpose of using sessions?
+
+ Sessions preserve data across requests, usually stored on the server.
+
+
+## What does bcrypt do to help us store passwords in a secure manner.
+
+It hashs the string. Using a salt, it's a one-way method of obfuscating the original pass.
+
+
+## What does bcrypt do to slow down attackers?
+
+It does multiple rounds of hashing the password, requiring an attacker know the salt, number of rounds and the algorithm used to derive the hash from the original.
+
+
+## What are the three parts of the JSON Web Token?
+
+Header, payload, signature.
+
+# .
+
 # Sprint Challenge: Authentication - Dad Jokes
 
 ## Description
@@ -33,18 +60,6 @@ Follow these steps for completing your project.
 ## Commits
 
 Commit your code regularly and use descriptive messages. This helps both you (in case you ever need to return to old code) and your Team Lead.
-
-## Self-Study/Essay Questions
-
-Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
-
-- [ ] What is the purpose of using _sessions_?
-
-- [ ] What does bcrypt do to help us store passwords in a secure manner.
-
-- [ ] What does bcrypt do to slow down attackers?
-
-- [ ] What are the three parts of the JSON Web Token?
 
 ## Minimum Viable Product
 
